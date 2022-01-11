@@ -1,7 +1,8 @@
 # Projeto de Estudo de React Native
 
-Em desenvolimento.
+Em desenvolvimento
 
-https://ghibliapi.herokuapp.com/#
+# Referências
 
-https://codesandbox.io/s/studio-ghibli-api-example-tvffw?file=/src/FilmList.js
+* [https://ghibliapi.herokuapp.com/#](https://ghibliapi.herokuapp.com/#)
+* [https://codesandbox.io/s/studio-ghibli-api-example-tvffw?file=/src/FilmList.js](https://codesandbox.io/s/studio-ghibli-api-example-tvffw?file=/src/FilmList.js)
