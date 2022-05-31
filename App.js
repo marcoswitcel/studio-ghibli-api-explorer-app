@@ -1,12 +1,29 @@
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { GhibliApi } from './api/GhibliApi';
+import Grid from './components/Grid';
+
+/**
+ * @typedef {{ id: string, title: string, image: string}} FilmInfo
+ */
 
 export default function App() {
+  /** @type {[FilmInfo[], React.Dispatch<React.SetStateAction<FilmInfo[]>>]} */
+  const [ films, setFilms ] = useState([]);
+
+  useEffect(() => {
+    GhibliApi.fetchFilms().then((films) => {
+      setFilms(films);
+    });
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    </View>
+      <Text>Título</Text>
+      {films.length ? <Grid films={films} /> : null}
+    </SafeAreaView>
   );
 }
 
