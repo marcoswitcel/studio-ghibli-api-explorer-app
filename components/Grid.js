@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dimensions, FlatList, Image } from 'react-native';
+import { Dimensions, FlatList } from 'react-native';
+import MovieCard from './MovieCard';
 
 /**
  * @typedef {{ id: string, title: string, image: string}} FilmInfo
@@ -19,15 +20,7 @@ export const Grid = ({ films }) => {
       data={films}
       keyExtractor={(item) => item.id}
       numColumns={numColumns}
-      renderItem={({ item }) => (
-        <Image
-          source={{
-            width: size,
-            height: size * 1.50,
-            uri: item.image,
-          }}
-        />
-      )}
+      renderItem={({ item }) => <MovieCard info={item} cardSize={size} />}
     />
   )
 }
