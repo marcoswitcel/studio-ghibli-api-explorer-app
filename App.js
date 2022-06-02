@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { GhibliApi } from './api/GhibliApi';
 import Grid from './components/Grid';
 
@@ -21,7 +21,9 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <Text>Título</Text>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Filmes</Text>
+      </View>
       {films.length ? <Grid films={films} /> : null}
     </SafeAreaView>
   );
@@ -34,4 +36,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerContainer: {
+    paddingTop: 16,
+    paddingBottom: 10,
+  },
+  headerText: {
+    ...Platform.select({
+      ios: { fontFamily: 'Arial', }, 
+      android: { fontFamily: 'Roboto' }
+    }),
+    fontSize: 28,
+  }
 });
