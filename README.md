@@ -5,8 +5,20 @@ Em desenvolvimento
 ## Template
 
 ```bash
+# Básico
 expo init studio-ghibli-api-explorer-app --template blank
 npm install @types/react-native --save
+
+# Instalações necessárias para a biblioteca de navegação
+# https://reactnavigation.org/docs/getting-started#installation
+npm install @react-navigation/native
+
+# https://reactnavigation.org/docs/getting-started#installing-dependencies-into-an-expo-managed-project
+expo install react-native-screens react-native-safe-area-context
+
+# https://reactnavigation.org/docs/stack-navigator/#installation
+expo install react-native-gesture-handler
+npm install @react-navigation/stack
 ```
 
 # Referências
@@ -23,3 +35,5 @@ npm install @types/react-native --save
   * No Linux: [https://react-native.rocketseat.dev/android/linux](https://react-native.rocketseat.dev/android/linux)
   * No Linux: [https://docs.rocketseat.dev/ambiente-react-native/android/linux](https://docs.rocketseat.dev/ambiente-react-native/android/linux)
   * No Windows: [https://react-native.rocketseat.dev/android/windows](https://react-native.rocketseat.dev/android/windows)
+
+
