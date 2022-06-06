@@ -11,11 +11,11 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='AllMovies'>
-          <Stack.Screen options={{ title: 'Lista com todos os filmes', headerShown: false }} name='AllMovies' component={AllMovies} />
-          <Stack.Screen options={{ title: 'Filme' }} name='Movie' component={Movie} />
+        <Stack.Navigator initialRouteName='AllMovies' screenOptions={{ headerShown: false }}>
+          <Stack.Screen options={{ title: 'Lista com todos os filmes' }} name='AllMovies' component={AllMovies} />
+          <Stack.Screen options={{ title: 'Visualização dados do filme' }} name='Movie' component={Movie} />
         </Stack.Navigator>
       </NavigationContainer>
     </>    
