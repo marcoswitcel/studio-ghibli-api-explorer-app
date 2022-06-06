@@ -1,50 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { GhibliApi } from './api/GhibliApi';
-import Grid from './components/Grid';
 
-/**
- * @typedef {{ id: string, title: string, image: string}} FilmInfo
- */
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import AllMovies from './views/AllMovies';
+import Movie from './views/Movie';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  /** @type {[FilmInfo[], React.Dispatch<React.SetStateAction<FilmInfo[]>>]} */
-  const [ films, setFilms ] = useState([]);
-
-  useEffect(() => {
-    GhibliApi.fetchFilms().then((films) => {
-      setFilms(films);
-    });
-  });
-
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       <StatusBar style="auto" />
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Filmes</Text>
-      </View>
-      {films.length ? <Grid films={films} /> : null}
-    </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='AllMovies'>
+          <Stack.Screen options={{ title: 'Lista com todos os filmes', headerShown: false }} name='AllMovies' component={AllMovies} />
+          <Stack.Screen options={{ title: 'Filme' }} name='Movie' component={Movie} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerContainer: {
-    paddingTop: 16,
-    paddingBottom: 10,
-  },
-  headerText: {
-    ...Platform.select({
-      ios: { fontFamily: 'Arial', }, 
-      android: { fontFamily: 'Roboto' }
-    }),
-    fontSize: 28,
-  }
-});

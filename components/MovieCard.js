@@ -9,10 +9,11 @@ import { Image, TouchableOpacity } from 'react-native';
  * @param {object} param0 
  * @param {FilmInfo} param0.info
  * @param {number} param0.cardSize
+ * @param {(info: FilmInfo) => void} param0.onPress
  * @returns 
  */
-export const MovieCard = ({ info, cardSize }) => (
-  <TouchableOpacity activeOpacity={0.7}>
+export const MovieCard = ({ info, cardSize, onPress }) => (
+  <TouchableOpacity activeOpacity={0.7} onPress={() => onPress(info)}>
     <Image
       source={{
         width: cardSize,

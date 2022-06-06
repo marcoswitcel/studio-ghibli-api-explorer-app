@@ -9,8 +9,9 @@ import MovieCard from './MovieCard';
 /**
  * @param {object} param0
  * @param {FilmInfo[]} param0.films
+ * @param {(info: FilmInfo) => void} param0.cardClickCallback
  */
-export const Grid = ({ films }) => {
+export const Grid = ({ films, cardClickCallback }) => {
   const { width } = Dimensions.get('window');
   const numColumns = 2;
   const size = width / numColumns;
@@ -20,7 +21,7 @@ export const Grid = ({ films }) => {
       data={films}
       keyExtractor={(item) => item.id}
       numColumns={numColumns}
-      renderItem={({ item }) => <MovieCard info={item} cardSize={size} />}
+      renderItem={({ item }) => <MovieCard onPress={cardClickCallback} info={item} cardSize={size} />}
     />
   )
 }
