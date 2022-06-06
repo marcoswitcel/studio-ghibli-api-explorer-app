@@ -15,7 +15,7 @@ export const AllMovies = ({ navigation }) => {
     GhibliApi.fetchFilms().then((films) => {
       setFilms(films);
     });
-  });
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
