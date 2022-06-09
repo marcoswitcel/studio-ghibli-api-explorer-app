@@ -3,7 +3,7 @@ import { Dimensions, FlatList } from 'react-native';
 import MovieCard from './MovieCard';
 
 /**
- * @typedef {{ id: string, title: string, image: string}} FilmInfo
+ * @typedef {import('../api/GhibliApi.js').FilmInfo} FilmInfo
  */
 
 /**

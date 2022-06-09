@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 
 /**
- * @typedef {{ id: string, title: string, image: string}} FilmInfo
+ * @typedef {import('../api/GhibliApi.js').FilmInfo} FilmInfo
  */
 
 /**

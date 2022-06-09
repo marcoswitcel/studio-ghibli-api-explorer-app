@@ -4,7 +4,7 @@ import { GhibliApi } from '../api/GhibliApi';
 import Grid from '../components/Grid';
 
 /**
- * @typedef {{ id: string, title: string, image: string}} FilmInfo
+ * @typedef {import('../api/GhibliApi.js').FilmInfo} FilmInfo
  */
 
 export const AllMovies = ({ navigation }) => {

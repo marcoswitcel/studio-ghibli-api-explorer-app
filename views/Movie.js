@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Dimensions, Image, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 /**
- * @typedef {{ id: string, title: string, image: string, release_date: string}} FilmInfo
+ * @typedef {import('../api/GhibliApi.js').FilmInfo} FilmInfo
  */
 
 /**
@@ -19,7 +19,7 @@ export const Movie = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.contentContainer}>
         <Text style={styles.titleText}>{route.params.title}</Text>
-        <Text style={styles.subTitle}>({route.params.release_date})</Text>
+        <Text style={styles.subTitle}>({route.params.releaseDate})</Text>
         <Image
           style={styles.image}
           source={{
