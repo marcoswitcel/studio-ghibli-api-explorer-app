@@ -1,5 +1,8 @@
 import React from 'react';
-import { Button, Dimensions, Image, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import {
+  Button, Dimensions, Image, Platform, SafeAreaView,
+  ScrollView, StyleSheet, Text, View
+} from 'react-native';
 
 /**
  * @typedef {import('../api/GhibliApi.js').FilmInfo} FilmInfo
@@ -17,7 +20,7 @@ export const Movie = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.contentContainer}>
+      <ScrollView style={styles.contentContainer}>
         <Text style={styles.titleText}>{route.params.title}</Text>
         <Text style={styles.subTitle}>({route.params.releaseDate})</Text>
         <Image
@@ -28,6 +31,8 @@ export const Movie = ({ route, navigation }) => {
             uri: route.params.image,
           }}
         />
+      </ScrollView>
+      <View style={styles.footer}>
         <Button title='Voltar' onPress={() => navigation.navigate('AllMovies')} />
       </View>
     </SafeAreaView>
@@ -43,11 +48,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  contentContainer: {},
+  contentContainer: {
+    flex: 1,
+    width: '100%',
+    paddingTop: 45,
+  },
   image: {
     alignSelf: 'center',
     marginTop: 4,
     marginBottom: 10,
+  },
+  footer: {
+    width: '85%',
+    paddingVertical: 10,
   },
   titleText: {
     ...Platform.select({
@@ -64,5 +77,6 @@ const styles = StyleSheet.create({
     }),
     textAlign: 'center',
     fontSize: 18,
+    marginBottom: 12,
   },
 });
